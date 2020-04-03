@@ -25,10 +25,15 @@
     <section id="newsletter">
       <div class="container">
         <h1>Subscribe per versionet e radhes</h1>
-        <form>
-          <input type="email" placeholder="Enter Email...">
-          <button type="submit" class="button_1">Subscribe</button>
+
+
+          <!--Subscribe form-->
+            <?php include './services/subscribe.php'?>
+          <form method='POST' action=<?php $_SERVER['PHP_SELF']; ?> >
+          <input type="text" name="subscribed_user_email" id="subscribed_user_email" placeholder="Enter Email...">
+          <button type="submit" name="subscribe_submit" class="button_1">Subscribe</button>
         </form>
+
       </div>
     </section>
 

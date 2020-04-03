@@ -1,3 +1,3 @@
 <footer>
-    <p>Acme Web Deisgn, Copyright &copy; 2017</p>
+    <p>Punoi Shkelqim Maxharraj. Student i FIEK me id: 160714100079</p>
 </footer>
