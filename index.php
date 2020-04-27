@@ -38,23 +38,56 @@
         <h1>Subscribe for other projects </h1>
 
           <?php
+
+          $servername = "localhost";
+          $username   = "root";
+          $password   = "";
+          $dbname     = "subscribers";
+
+          // Create connection
+          $conn = mysqli_connect($servername, $username, $password, $dbname);
+          // Check connection
+          if (!$conn) {
+              die("Connection failed: " . mysqli_connect_error());
+          }
+
+
+          $email = '';
+            $errors = array('email' => '');
             if(isset($_POST['submitSub'])){
                 if(empty($_POST['email'])){
-                    echo "Email can't be empty";
+                    $errors['email'] = "Email can't be empty";
                 }
                 else {
                     $email = $_POST['email'];
                     if (!preg_match("/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/",$email)) {
-                        echo "Please use the right format for email";
+                        $errors['email'] = "Please use the right form for email";
                     }
                 }
+
+                if (!array_filter($errors)){
+                    //Here add text to database
+                    $sql = "INSERT INTO users(email) VALUES ('$email')";
+
+                        if (mysqli_query($conn, $sql)) {
+                            echo "New record created successfully";
+                        } else {
+                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        }
+                    mysqli_close($conn);
+                    header('Location: index.php');
+
+                }
+
+
+
             }
 
           ?>
 
         <form name="subscribeForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
-            <label for=""></label>
-            <input type="text" name='email' placeholder="Enter Email...">
+            <label for=""><?php echo $errors['email']?></label>
+            <input type="text" name='email' placeholder="Enter Email..." value="<?php echo htmlspecialchars($email) ?>">
 
             <input type="submit" name='submitSub' class="button_1" value='Subscribe'>
         </form>
