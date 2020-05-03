@@ -18,7 +18,7 @@
           <ul>
             <li class="current"><a href="index.php">Home</a></li>
             <li><a href="src/about.php">     About</a></li>
-            <li><a href="src/services.php">  Services</a></li>
+            <li><a href="src/Services.php">  Services</a></li>
             <li><a href="src/Register.php">  Register</a></li>
             <li><a href="src/Login.php"></a> Login</li>
           </ul>
@@ -67,7 +67,7 @@
 
                 if (!array_filter($errors)){
                     //Here add text to database
-                    $sql = "INSERT INTO users(email) VALUES ('$email')";
+                    $sql = "INSERT INTO Users(email) VALUES ('$email')";
 
                         if (mysqli_query($conn, $sql)) {
                             echo "New record created successfully";
@@ -117,7 +117,7 @@
     </section>
 
     <footer>
-      <p>Acme Web Deisgn, Copyright &copy; 2017</p>
+      <p>Projekti ne lenden: Programimi ne Internet<br /> Punoi: Shkelqim Maxharraj 160714100079</p>
     </footer>
   </body>
 </html>

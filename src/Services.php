@@ -20,14 +20,14 @@
           <h1 class="page-title">Services</h1>
           <ul id="services">
             <li>
-              <h3>Manage your tasks</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-						  <p>Pricing: $1,000 - $3,000</p>
+                <h3>Manage your tasks</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
+                <p>Pricing: $1,000 - $3,000</p>
             </li>
             <li>
-              <h3>Login</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-						  <p>Pricing: $250 per month</p>
+                <h3>Login</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
+				<p>Pricing: $250 per month</p>
             </li>
             <li>
               <h3>W</h3>
@@ -39,10 +39,10 @@
 
         <aside id="sidebar">
           <div class="dark">
-            <h3>Get A Quote</h3>
+            <h3>Add or edit atsk</h3>
             <form class="quote">
   						<div>
-  							<label>Name</label><br>
+  							<label>Title</label><br>
   							<input type="text" placeholder="Name">
   						</div>
   						<div>
@@ -50,7 +50,7 @@
   							<input type="email" placeholder="Emial Address">
   						</div>
   						<div>
-  							<label>Message</label><br>
+  							<label>Text</label><br>
   							<textarea placeholder="Message"></textarea>
   						</div>
   						<button class="button_1" type="submit">Send</button>

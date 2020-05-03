@@ -23,7 +23,7 @@
           <h1 class="page-title">About Me</h1>
           <p>
               <?php 
-                  echo 'Emri im eshte: ' .$developerName. 'jam student ne ' .implode(" ",$developerEducation). ' email-i im eshte ' .$developerEmail . '. And my hobbies are ' .join(", ", $developerHobbies) ;
+                  echo nl2br ('Emri im eshte: ' .$developerName. " \n Une jam student ne " .implode(" ",$developerEducation). " \n Email-i im eshte " .$developerEmail . ". \n And my hobbies are " .join(", ", $developerHobbies) );
               ?>
           </p>
           <p class="dark">
