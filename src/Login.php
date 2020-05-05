@@ -2,11 +2,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Affordable and professional web design">
-	  <meta name="keywords" content="web design, affordable web design, professional web design">
-  	<meta name="author" content="Brad Traversy">
-    <title>Acme Web Deisgn | About</title>
+  	<meta name="author" content="Shkelqim Maxharraj">
+    <title>Regjistrohu</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/Register.css">
   </head>
   <body>
 
@@ -16,22 +15,27 @@
 
     <section id="main">
       <div class="container">
-        <article id="main-col">
-          <h1 class="page-title">About Us</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius auctor lacus nec feugiat. Phasellus sit amet ex ipsum. Praesent pharetra tincidunt tempor. Etiam velit eros, dapibus eget porta in, lacinia et magna. Nam eget eros non orci consectetur congue at ac augue. Proin eget arcu in enim feugiat ultricies. Curabitur maximus metus nec metus pretium viverra at et orci. Integer hendrerit ante ut placerat cursus.
-          </p>
-          <p class="dark">
-Aliquam eget pharetra diam. Nulla placerat lorem at turpis tempor, vel ultrices dui tincidunt. Proin quis egestas lorem. Mauris vehicula lectus odio, sit amet dictum justo feugiat a. Praesent id dictum lacus. Sed ullamcorper id erat ut dictum. Fusce porttitor lorem sapien, in aliquet sapien convallis et. Donec nec mauris nulla. Curabitur cursus semper odio, et hendrerit ante. Nunc at cursus ante. Maecenas gravida ligula ut efficitur suscipit. Nulla id turpis varius, pretium nunc sed, fermentum sem. Sed lacinia nunc non interdum pellentesque.
-          </p>
-        </article>
 
-        <aside id="sidebar">
-          <div class="dark">
-            <h3>What We Do</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius auctor lacus nec feugiat. Phasellus sit amet ex ipsum. Praesent pharetra tincidunt tempor. Etiam velit eros, dapibus eget porta in, lacinia et magna</p>
-          </div>
-        </aside>
+          <h1>LOGIN</h1>
+          <p>Please fill in this form to login.</p>
+          <form action="#">
+              <div class="container">
+                  <hr>
+
+                  <label for="email"><b>Email</b></label>
+                  <input type="text" placeholder="Enter Email" name="email" required>
+
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name="psw" required>
+
+                  <button type="submit" class="registerbtn">LOGIN</button>
+              </div>
+
+              <div class="container signin">
+                  <p>Not a member <a href="#">Sign up</a>.</p>
+              </div>
+          </form>
+
       </div>
     </section>
 

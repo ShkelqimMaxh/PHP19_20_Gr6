@@ -10,33 +10,92 @@
 </head>
 <body>
 
-<?php include 'Header.php' ?>
 
 
+<?php   include '../src/Header.php';
+        include '../services/userDbConn.php';
+?>
 
 <section id="main">
     <div class="container">
         <div class="form-style-8">
             <h2>Register for more</h2>
 
-            <form action="#">
+            <?php
+
+            $error = array('name'=>'','email'=>'','password'=>'','passwordRepat'=>'');
+            if(isset($_POST['registerSubmit'])) {
+
+                    if (empty($_POST('registerName'))) {
+                        $error['name'] = "Emri nuk mund te jete i zbrazte";
+                    } else {
+                        $registerName = $_POST['registerName'];
+                        if(!preg_match('/^[a-zA-Z]+$/',$registerName)){
+                            $error['name'] = 'Emri duhet te permbaje vetem shkronja';
+                        }
+                    }
+
+                    if(empty($_POST('registerEmail'))) {
+                        $error['email'] = "Email nuk mund te jete i zbrazte";
+                    } else {
+                        $registerEmail = $_POST['registerEmail'];
+                        if (!preg_match('/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/',$registerEmail)) {
+                            $error['email'] = 'Email duhet te jete ne formatin e saj';
+                        }
+                    }
+
+                    if(empty($_POST('registerPassword'))) {
+                        $error['password'] = "Passwordi nuk mund te jete i zbrazte";
+                    } else {
+                        $registerPassword = $_POST['registerPassword'];
+                        if (!preg_match('/"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/',$registerPassword)) {
+                            $error['email'] = 'Passwordi i dobet. Passwordi duhet te permbaje te pakten 8 karaktere nje shkronje
+                            tevogel nje te madhe te pakten nje numer te 1 special karakter';
+                        }
+                    }
+
+                    if (empty($_POST('registerPassword-repat'))) {
+                        $error['passwordRepat'] = "Email nuk mund te jete i zbrazte";
+                    }
+                    else {
+                        if ($_POST['registerPassword']!= $_POST['registerPassword-repat']) {
+                            $error['passwordRepat'] = "Passwordet nuk perputhen. Rishikoni perseri";
+                        }
+                    }
+
+                    if(array_filter($error)){
+                        //Ka errora
+                    }
+                    else {
+                        //Nuk ka errora proceduro me tutje
+                    }
+            }
+
+            ?>
+
+
+
+            <form action="Register.php" method="POST">
                 <div class="container">
                     <h1>Register</h1>
                     <p>Please fill in this form to create an account.</p>
                     <hr>
 
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <label for="registerName"><b>Name</b></label>
+                    <input type="text" placeholder="Enter Name..." name="registerName" >
 
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label for="registerEmail"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email..." name="registerEmail" >
 
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                    <label for="registerPassword"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password..." name="registerPassword" >
+
+                    <label for="registerPassword-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password..." name="registerPassword-repat" >
                     <hr>
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-                    <button type="submit" class="registerbtn">Register</button>
+                    <input type="submit" name="registerSubmit" class="registerbtn" value="Register" >
                 </div>
 
                 <div class="container signin">
@@ -50,7 +109,7 @@
 </section>
 
 <footer>
-    <p>Acme Web Deisgn, Copyright &copy; 2017</p>
+    <p>Projekti ne lenden: <br /> Programimi ne internet</p>
 </footer>
 
 

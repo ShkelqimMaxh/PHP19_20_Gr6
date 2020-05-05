@@ -16,11 +16,11 @@
         </div>
         <nav>
           <ul>
-            <li class="current"><a href="index.php">Home</a></li>
-            <li><a href="src/about.php">     About</a></li>
-            <li><a href="src/Services.php">  Services</a></li>
-            <li><a href="src/Register.php">  Register</a></li>
-            <li><a href="src/Login.php"></a> Login</li>
+            <li class="current"><a href="index.php">Home    </a></li>
+            <li><a href="src/about.php">        About       </a></li>
+            <li><a href="src/Services.php">     Services    </a></li>
+            <li><a href="src/Register.php">     Register    </a></li>
+            <li><a href="src/Login.php">        Login       </a></li>
           </ul>
         </nav>
       </div>
