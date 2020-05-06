@@ -23,53 +23,80 @@
 
             <?php
 
-            $error = array('name'=>'','email'=>'','password'=>'','passwordRepat'=>'');
-            if(isset($_POST['registerSubmit'])) {
 
-                    if (empty($_POST('registerName'))) {
-                        $error['name'] = "Emri nuk mund te jete i zbrazte";
-                    } else {
-                        $registerName = $_POST['registerName'];
-                        if(!preg_match('/^[a-zA-Z]+$/',$registerName)){
-                            $error['name'] = 'Emri duhet te permbaje vetem shkronja';
+            $name  = '';
+            $password= '';
+            $email = '';
+            $password_repat='';
+
+            //Validation of a register form
+
+            $errors = array('name'=> '','email' => '', 'password'=>'', 'password-repat'=>'');
+
+            if(isset($_POST['registerSubmit'])){
+
+                if(empty($_POST['registerName'])){
+                    $errors['name'] = "Name can't be empty";
+                }
+                else {
+                    $name = $_POST['registerName'];
+                    if (!preg_match("/^[a-zA-Z0-9]+$/",$name)) {
+                        $errors['name'] = "Please use the right form for name";
+                    }
+                }
+
+                if(empty($_POST['registerEmail'])){
+                    $errors['email'] = "Email can't be empty";
+                }
+                else {
+                    $email = $_POST['registerEmail'];
+                    if (!preg_match("/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/",$email)) {
+                        $errors['email'] = "Please use the right form for email";
+                    }
+                }
+
+
+                if(empty($_POST['registerPassword'])){
+                    $errors['password'] = "Password can't be empty";
+                }
+                else {
+                    $password = $_POST['registerPassword'];
+                    if (!preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_])[a-zA-Z0-9\W\_]{8,15}$/",$password)) {
+                        $errors['password'] = "Password should contain at least 1 uppercase letter 1 lowercase letter 1 number and 1 character";
+                    }
+                }
+
+                if(empty($_POST['registerPassword-repat'])){
+                    $errors['password-repat'] = "Email can't be empty";
+                }
+                else {
+                        $password_repat = $_POST['registerPassword-repat'];
+                        if ($password != $password_repat) {
+                            $errors['password-repat'] = "Bad";
+                        }
+
+                }
+
+
+                //If form have errors or if it does not
+                if (!array_filter($errors)){
+                        //If form does not have errors
+                    $hash = password_hash($password, PASSWORD_DEFAULT);
+                    $createUserSql = "INSERT INTO Users(userName,userEmail,userPassword) VALUES ('$name','$email','$hash')";
+                        if (mysqli_query($conn, $createUserSql)) {
+                            echo "New record created successfully";
+                        } else {
+                            echo "Error: " . $createUserSql . "<br>" . mysqli_error($conn);
                         }
                     }
+                else {
+                        //If form have erros
+                        echo 'Bad';
 
-                    if(empty($_POST('registerEmail'))) {
-                        $error['email'] = "Email nuk mund te jete i zbrazte";
-                    } else {
-                        $registerEmail = $_POST['registerEmail'];
-                        if (!preg_match('/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/',$registerEmail)) {
-                            $error['email'] = 'Email duhet te jete ne formatin e saj';
-                        }
-                    }
-
-                    if(empty($_POST('registerPassword'))) {
-                        $error['password'] = "Passwordi nuk mund te jete i zbrazte";
-                    } else {
-                        $registerPassword = $_POST['registerPassword'];
-                        if (!preg_match('/"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/',$registerPassword)) {
-                            $error['email'] = 'Passwordi i dobet. Passwordi duhet te permbaje te pakten 8 karaktere nje shkronje
-                            tevogel nje te madhe te pakten nje numer te 1 special karakter';
-                        }
-                    }
-
-                    if (empty($_POST('registerPassword-repat'))) {
-                        $error['passwordRepat'] = "Email nuk mund te jete i zbrazte";
-                    }
-                    else {
-                        if ($_POST['registerPassword']!= $_POST['registerPassword-repat']) {
-                            $error['passwordRepat'] = "Passwordet nuk perputhen. Rishikoni perseri";
-                        }
-                    }
-
-                    if(array_filter($error)){
-                        //Ka errora
-                    }
-                    else {
-                        //Nuk ka errora proceduro me tutje
-                    }
+                }
             }
+
+
 
             ?>
 
@@ -83,15 +110,22 @@
 
                     <label for="registerName"><b>Name</b></label>
                     <input type="text" placeholder="Enter Name..." name="registerName" >
+                    <p class="red-Text"><?php echo  $errors['name']?></p>
+
 
                     <label for="registerEmail"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email..." name="registerEmail" >
+                    <p class="red-Text"><?php echo  $errors['email']?></p>
+
 
                     <label for="registerPassword"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password..." name="registerPassword" >
+                    <p class="red-Text"><?php echo  $errors['password']?></p>
+
 
                     <label for="registerPassword-repeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password..." name="registerPassword-repat" >
+                    <p class="red-Text"><?php echo $errors['password-repat'] ?></p>
                     <hr>
                     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
