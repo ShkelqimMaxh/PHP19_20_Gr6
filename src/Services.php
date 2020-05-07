@@ -6,11 +6,14 @@
 	  <meta name="keywords" content="web design, affordable web design, professional web design">
   	<meta name="author" content="Brad Traversy">
     <title>Acme Web Deisgn | Services</title>
-    <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/Todo.css">
   </head>
   <body>
 
-  <?php include 'Header.php' ?>
+  <?php include 'Header.php';
+        include '../services/userDbConn.php';
+  ?>
 
 
 
@@ -18,22 +21,59 @@
       <div class="container">
         <article id="main-col">
           <h1 class="page-title">Services</h1>
-          <ul id="services">
-            <li>
-                <h3>Manage your tasks</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-                <p>Pricing: $1,000 - $3,000</p>
-            </li>
-            <li>
-                <h3>Login</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-				<p>Pricing: $250 per month</p>
-            </li>
-            <li>
-              <h3>W</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mi augue, viverra sit amet ultricies at, vulputate id lorem. Nulla facilisi.</p>
-						  <p>Pricing: $25 per month</p>
-            </li>
+
+            <ul id="services">
+            <?php
+            session_start();
+                if(isset( $_SESSION['firstname'] )){
+                    echo sprintf("Mireseerdhet: %s", $_SESSION['firstname']);
+                }
+                else {
+                    echo 'Ju nuk jeni i loguar';
+                }
+
+
+            $query = "SELECT * FROM todos WHERE userId='".$_SESSION['idUser']."'";
+            $result = mysqli_query($conn, $query);
+            $projects = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);
+
+            //Delete Records
+            if(isset($_POST['deleteTodo'])){
+
+                $activeTask = mysqli_real_escape_string($conn, $_POST['deleteTodo']);
+                $deleteQuery = "DELETE FROM  todos WHERE todoId = {$activeTask}";
+
+                if(mysqli_query($conn, $deleteQuery))
+                {
+                    echo "<script>window.onload(); </script>";
+                }
+                else {
+                    echo "Bad";
+                }
+            }
+
+
+
+        //Get Records
+            foreach ($projects as $todo){
+                echo (sprintf("<li class=\"record\">
+                                              <div class=\"card\">
+                                                <h1 id=\"title\">%s
+                                                    <form method='POST'>
+                                                        <input type='hidden' name='deleteTodo' value='%s']>
+                                                        <input class=\"deleteTodo\" type=\"submit\" name=\"delete\" value=\"X\" >
+                                                    </form>
+                                                </span></h1>
+                                                <span class=\"text\">%s</span>
+                                                <p class=\"editTodo\">Edit this task</p>
+                                              </div>
+                                      </li>", $todo["todoTitle"],$todo['todoId'], $todo["todoText"]));
+            }
+
+
+            ?>
+
           </ul>
         </article>
 
