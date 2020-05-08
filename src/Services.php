@@ -32,10 +32,10 @@
                     echo 'Ju nuk jeni i loguar';
                 }
 
-
-            $query = "SELECT * FROM todos WHERE userId='".$_SESSION['idUser']."'";
+            //Get Todos
+            $query = "SELECT * FROM todos WHERE userId='".$_SESSION['idUser']."' ORDER BY todoId desc";
             $result = mysqli_query($conn, $query);
-            $projects = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $todos = mysqli_fetch_all($result, MYSQLI_ASSOC);
             mysqli_free_result($result);
 
             //Delete Records
@@ -46,7 +46,8 @@
 
                 if(mysqli_query($conn, $deleteQuery))
                 {
-                    echo "<script>window.onload(); </script>";
+                    $_SESSION['totalTodos']--;
+                    header('Location: Services.php');
                 }
                 else {
                     echo "Bad";
@@ -55,45 +56,73 @@
 
 
 
-        //Get Records
+        /*
             foreach ($projects as $todo){
-                echo (sprintf("<li class=\"record\">
+                echo ("<li class=\"record\">
                                               <div class=\"card\">
-                                                <h1 id=\"title\">%s
-                                                    <form method='POST'>
-                                                        <input type='hidden' name='deleteTodo' value='%s']>
-                                                        <input class=\"deleteTodo\" type=\"submit\" name=\"delete\" value=\"X\" >
-                                                    </form>
-                                                </span></h1>
-                                                <span class=\"text\">%s</span>
-                                                <p class=\"editTodo\">Edit this task</p>
+                                                <h1 id=\"title\">" . $todo["todoTitle"] . "                                                    
+                                                </span></h1>" . "  <span class=\"text\">" . $todo["todoText"] . "</span>
+                                                <p class=\"editTodo\">Edit this task</p>         
+                                                <a href=\"editpost.php?id=".  strval($todo['todoId']) . " class=\"editTodo\">Edit this task</a>
                                               </div>
-                                      </li>", $todo["todoTitle"],$todo['todoId'], $todo["todoText"]));
+                                      </li>");
             }
-
-
+        */
             ?>
+            <?php foreach($todos as $todo):?>
+
+                <li class="record">
+                    <h1 id="title">         <?php echo $todo['todoTitle'];?></h1>
+                    <p><span class="text">  <?php echo $todo['todoText'];?></span></p>
+                    <form method='POST'>
+                        <input type='hidden' name='deleteTodo' value='<?php echo $todo["todoId"];?>'>
+                        <input class="deleteTodo\" type="submit" name="delete" value="X" >
+                    </form>
+                    <a href='editpost.php?id=<?php echo $todo["todoId"] ?>' role="button" class="btn">Edit</a>
+
+                </li>
+                <?php endforeach;?>
+
+
 
           </ul>
         </article>
 
+          <?php
+
+          //Add new post to logged in user
+
+          if(isset($_POST['submitTodo'])) {
+
+                $title = $_POST['titleTodo'];
+                $activeUser = $_SESSION["idUser"];
+                $text   = $_POST['textTodo'];
+
+                  $createTodoSql = "INSERT INTO todos(todoTitle,userId, todoText) VALUES ('$title','$activeUser','$text')";
+                  if (mysqli_query($conn, $createTodoSql)) {
+                      $_SESSION['totalTodos']++;
+                      header('Location: Services.php');
+                  } else {
+                      echo "Error: " . $createTodoSql . "<br>" . mysqli_error($conn);
+                  }
+              }
+          ?>
+
+
+
         <aside id="sidebar">
           <div class="dark">
-            <h3>Add or edit atsk</h3>
-            <form class="quote">
+            <h3>Add or edit task</h3>
+            <form class="quote" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
   						<div>
   							<label>Title</label><br>
-  							<input type="text" placeholder="Name">
-  						</div>
-  						<div>
-  							<label>Email</label><br>
-  							<input type="email" placeholder="Emial Address">
+  							<input type="text" name='titleTodo' placeholder="Name">
   						</div>
   						<div>
   							<label>Text</label><br>
-  							<textarea placeholder="Message"></textarea>
+  							<input type="text" name="textTodo" placeholder="Message">
   						</div>
-  						<button class="button_1" type="submit">Send</button>
+  						<input class="button_1" type="submit" name="submitTodo" value="Add Todo">
 					</form>
           </div>
         </aside>

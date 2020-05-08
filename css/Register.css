@@ -1,4 +1,4 @@
-.container form {
+.container .loginForm {
     background-color: white;
     border: 1px solid black;
 }
@@ -52,4 +52,19 @@ a {
 .red-Text {
     color: red;
     font-weight: bold;
+}
+.isLoggedIn {
+    display: none;
+}
+.isLoggedOut {
+    display: none;
+}
+
+.userLogged{
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+.logoutForm input{
+    font-size: 20px;
 }

@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bb00dc0-2783-4ec9-b4c2-f61cacaa682a" name="Default Changelist" comment="">
+    <list default="true" id="3bb00dc0-2783-4ec9-b4c2-f61cacaa682a" name="Default Changelist" comment="Fixing login and task viewing based on user">
+      <change afterPath="$PROJECT_DIR$/src/editpost.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/todos.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/Todo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/userDbConn.php" beforeDir="false" afterPath="$PROJECT_DIR$/services/userDbConn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/Register.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/Register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/Todo.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/Todo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services.php" afterDir="false" />
     </list>
@@ -93,7 +95,12 @@
       <workItem from="1588734004348" duration="2880000" />
       <workItem from="1588779532968" duration="4521000" />
       <workItem from="1588821508416" duration="4065000" />
-      <workItem from="1588861418790" duration="5287000" />
+      <workItem from="1588861418790" duration="11143000" />
+      <workItem from="1588882224889" duration="7092000" />
+      <workItem from="1588906439291" duration="184000" />
+      <workItem from="1588944955744" duration="2373000" />
+      <workItem from="1588949118329" duration="1485000" />
+      <workItem from="1588952449023" duration="6599000" />
     </task>
     <task id="LOCAL-00001" summary="Adding register page and fixing services page for edit and get in the new version">
       <created>1588476973260</created>
@@ -116,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588736838668</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixing login and task viewing based on user">
+      <created>1588866741727</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588866741728</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,13 +152,18 @@
     <MESSAGE value="Adding register page and fixing services page for edit and get in the new version" />
     <MESSAGE value="Fixing register and login form. Also validation of register" />
     <MESSAGE value="Now a user can register. Password is salted. He can also login. We also fix some view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now a user can register. Password is salted. He can also login. We also fix some view" />
+    <MESSAGE value="Fixing login and task viewing based on user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing login and task viewing based on user" />
   </component>
   <component name="WindowStateProjectService">
     <state x="475" y="55" key="#PHP" timestamp="1588619787930">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="55" key="#PHP/0.0.1536.824@0.0.1536.824" timestamp="1588619787930" />
+    <state x="484" y="95" key="#Services.php" timestamp="1588954296327">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="484" y="95" key="#Services.php/0.0.1536.824@0.0.1536.824" timestamp="1588954296327" />
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588736605844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -165,34 +184,34 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="629" y="324" key="Github.Dialog.Accounts.Choose/0.0.1536.824@0.0.1536.824" timestamp="1588650569734" />
-    <state width="961" height="147" key="GridCell.Tab.0.bottom" timestamp="1588866394673">
+    <state width="956" height="147" key="GridCell.Tab.0.bottom" timestamp="1588957819470">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="961" height="147" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588866394673" />
-    <state width="961" height="147" key="GridCell.Tab.0.center" timestamp="1588866394673">
+    <state width="956" height="147" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588957819470" />
+    <state width="956" height="147" key="GridCell.Tab.0.center" timestamp="1588957819470">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="961" height="147" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588866394673" />
-    <state width="961" height="147" key="GridCell.Tab.0.left" timestamp="1588866394673">
+    <state width="956" height="147" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588957819470" />
+    <state width="956" height="147" key="GridCell.Tab.0.left" timestamp="1588957819466">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="961" height="147" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588866394673" />
-    <state width="961" height="147" key="GridCell.Tab.0.right" timestamp="1588866394673">
+    <state width="956" height="147" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588957819466" />
+    <state width="956" height="147" key="GridCell.Tab.0.right" timestamp="1588957819470">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="961" height="147" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588866394673" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1588823592639">
+    <state width="956" height="147" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588957819470" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1588953227084">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1588823592639" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1588953227084" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1588619734669">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588619734669" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588736842417">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1588866765652">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588736842417" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1588866765652" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586731328962">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

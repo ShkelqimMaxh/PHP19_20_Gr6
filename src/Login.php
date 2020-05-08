@@ -36,14 +36,25 @@
               $sql = "SELECT * FROM users WHERE userEmail='".$loginEmail."'";
               $resultati = mysqli_query($conn, $sql);
 
+
               if(mysqli_num_rows($resultati)>0){
                   $row = mysqli_fetch_array($resultati);
                   $password_hash= $row['userPassword'];
 
                   if(password_verify($loginPassword,$password_hash)){
                       //Save user there and go to services
+                      $countQuery = "select count(*)as count from todos WHERE userId='".$row['userId']."'";
+                      $result = $conn->query($countQuery);
+                      $count = $result->fetch_assoc()["count"];
+
+
+
                       $_SESSION["firstname"] = $row['userName'];
                       $_SESSION["idUser"] = $row['userId'];
+                      $_SESSION['email'] = $row['userEmail'];
+                      $_SESSION['totalTodos'] = $count;
+
+
 
                       header('Location: Services.php');
                   }
@@ -57,12 +68,16 @@
               }
 
           }
+              if(isset($_POST['logout']))
+              {
+                  session_destroy();
+              }
 
       ?>
 
 
-
-          <form action="login.php" method="post">
+            <!--If user is not logged in than show this-->
+          <form class="loginForm" action="<?php echo $_SERVER['PHP_SELF']; ?>"  method="post" <?php if (isset($_SESSION['firstname'])){ echo 'style="display:none;"'; } ?> >
               <div class="container">
                   <hr>
                   <label for="email"><b>Email</b></label>
@@ -78,6 +93,22 @@
                   <p>Not a member <a href="#">Sign up</a>.</p>
               </div>
           </form>
+
+          <!---->
+        <div class="userLogged" <?php if (!isset($_SESSION['firstname'])){ echo 'style="display:none;"'; } ?>>
+            Ju jeni aktiv ne llogarine tuaj. Deshironi te dilni ?
+            <h1><span class="red-Text">Emri:</span>         <?php echo $_SESSION['firstname']?> </h1>
+            <h3><span class="red-Text">Email:</span>        <?php echo $_SESSION['email']?>     </h3>
+            <h4><span class="red-Text">Total Tasks:</span>  <?php echo $_SESSION['totalTodos']?></h4>
+
+            <form method="POST" class="logoutForm">
+                <input type="submit" name="logout" value="Logout">
+            </form>
+
+        </div>
+
+
+
 
       </div>
     </section>
