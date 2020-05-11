@@ -53,6 +53,7 @@
                       $_SESSION["idUser"] = $row['userId'];
                       $_SESSION['email'] = $row['userEmail'];
                       $_SESSION['totalTodos'] = $count;
+                      $_SESSION['actualTodo'] = 0;
 
 
 

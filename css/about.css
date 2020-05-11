@@ -1,0 +1,13 @@
+.emailMeForm{
+        margin: 20px 60px;
+    display: table;
+}
+.emailMeForm * {
+    display: block;
+}
+label {
+    margin-top: 20px;
+}
+.emailMeForm input {
+    float: right;
+}

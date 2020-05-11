@@ -52,22 +52,15 @@
                 else {
                     echo "Bad";
                 }
+
+            }
+
+            if(isset($_POST['editTodo'])){
+                $_SESSION['actualTodo'] = $_POST['edit'];
+                header('Location:editpost.php');
             }
 
 
-
-        /*
-            foreach ($projects as $todo){
-                echo ("<li class=\"record\">
-                                              <div class=\"card\">
-                                                <h1 id=\"title\">" . $todo["todoTitle"] . "                                                    
-                                                </span></h1>" . "  <span class=\"text\">" . $todo["todoText"] . "</span>
-                                                <p class=\"editTodo\">Edit this task</p>         
-                                                <a href=\"editpost.php?id=".  strval($todo['todoId']) . " class=\"editTodo\">Edit this task</a>
-                                              </div>
-                                      </li>");
-            }
-        */
             ?>
             <?php foreach($todos as $todo):?>
 
@@ -78,7 +71,11 @@
                         <input type='hidden' name='deleteTodo' value='<?php echo $todo["todoId"];?>'>
                         <input class="deleteTodo\" type="submit" name="delete" value="X" >
                     </form>
-                    <a href='editpost.php?id=<?php echo $todo["todoId"] ?>' role="button" class="btn">Edit</a>
+
+                    <form method="POST">
+                        <input type='hidden' name='edit' value='<?php echo $todo["todoId"];?>'>
+                        <input type="submit" name="editTodo" value="Edit">
+                    </form>
 
                 </li>
                 <?php endforeach;?>
