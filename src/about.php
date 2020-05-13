@@ -120,8 +120,12 @@
 
       </div>
     </section>
-    <a href="readFile.php">To see project tasks</a><br />
-    <a href="gaming.php">To play a little game</a>
+
+        <div class="container">
+            <a href="readFile.php">To see project tasks</a><br />
+            <a href="relase.php">Relase a new version</a>
+        </div>
+
     <footer>
       <p>Acme Web Deisgn, Copyright &copy; 2017</p>
     </footer>
