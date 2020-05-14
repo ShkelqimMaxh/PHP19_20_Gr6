@@ -30,8 +30,11 @@
         <br /> <br />
         <h3>Relase a new version</h3>
         <p style="font-size: 0.8em">If you relase a new version everybody in subscribers list will get a new email with message: <span>THE NEW VERSION IS HERE AND A LINK OF WEBPAGE</p>
-        <input type="button" value="">
 
+
+        <form action="../services/subscribers.php" method="POST">
+            <input type="submit" name="relaseNewVersion" value="RELASE">
+        </form>
 
     </div>
 

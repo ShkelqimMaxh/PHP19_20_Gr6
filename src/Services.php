@@ -89,13 +89,24 @@
 
           //Add new post to logged in user
 
+          $errors = array('title'=> '','text' => '');
+
           if(isset($_POST['submitTodo'])) {
 
-                $title = $_POST['titleTodo'];
-                $activeUser = $_SESSION["idUser"];
-                $text   = $_POST['textTodo'];
+              if(empty($_POST['titleTodo'])){
+                  $errors['title'] = 'Titulli nuk mund te jete i zbrazte';
+              }
+              if(empty($_POST['textTodo'])){
+                  $errors['text'] = "Teksti nuk mund te jete i zbrazte";
+              }
+
+              if(!array_filter($errors)){
+                  $title = $_POST['titleTodo'];
+                  $activeUser = $_SESSION["idUser"];
+                  $text   = $_POST['textTodo'];
 
                   $createTodoSql = "INSERT INTO todos(todoTitle,userId, todoText) VALUES ('$title','$activeUser','$text')";
+
                   if (mysqli_query($conn, $createTodoSql)) {
                       $_SESSION['totalTodos']++;
                       header('Location: Services.php');
@@ -103,6 +114,9 @@
                       echo "Error: " . $createTodoSql . "<br>" . mysqli_error($conn);
                   }
               }
+          }
+
+
           ?>
 
 
@@ -113,11 +127,13 @@
             <form class="quote" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
   						<div>
   							<label>Title</label><br>
-  							<input type="text" name='titleTodo' placeholder="Name">
+  							<input type="text" name='titleTodo' placeholder="Name"><br />
+                            <label class="redText"><?php echo $errors['title']?></label>
   						</div>
   						<div>
-  							<label>Text</label><br>
-  							<input type="text" name="textTodo" placeholder="Message">
+  							<label>Text</label></span><br>
+  							<input type="text" name="textTodo" placeholder="Message"><br />
+                            <label class="redText"><?php echo $errors['text']?></label>
   						</div>
   						<input class="button_1" type="submit" name="submitTodo" value="Add Todo">
 					</form>

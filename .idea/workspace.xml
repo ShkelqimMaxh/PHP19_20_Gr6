@@ -20,13 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bb00dc0-2783-4ec9-b4c2-f61cacaa682a" name="Default Changelist" comment="Adding email sender and file reader">
-      <change afterPath="$PROJECT_DIR$/src/js/showUsers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subscribe.php" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscribers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/subscribers.php" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscribers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/about.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gaming.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/relase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/readFile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/readFile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/relase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/relase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +51,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1aRNbVUVbPV749I0gwzun5n0iu2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -118,6 +119,7 @@
       <workItem from="1589308583309" duration="13461000" />
       <workItem from="1589335505094" duration="667000" />
       <workItem from="1589336297943" duration="6400000" />
+      <workItem from="1589483983892" duration="1054000" />
     </task>
     <task id="LOCAL-00001" summary="Adding register page and fixing services page for edit and get in the new version">
       <created>1588476973260</created>

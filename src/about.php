@@ -30,21 +30,17 @@
             <?php
 
                 if(isset($_POST['submit'])){
-                    $to = "shkelqim.maxharraj@student.uni-pr.edu"; // Emaila e pranuesit (developerit)
-                    $from = $_POST['email'];                    // Emaili qe e shkruajme ne input
-                    $first_name = $_POST['first_name'];
-                    $last_name = $_POST['last_name'];
-                    $subject = "Projekti  PI";
-                    $subject2 = "Mbrotja e projektit ne PI";
-                    $message = $first_name . " " . $last_name . " Ka shkruar se :" . "\n\n" . $_POST['message'];
-                    $message2 = "Ja nje kopje e mesazhit " . $first_name . "\n\n" . $_POST['message'];
+                    $toEmail = "shkelqim.maxharraj@student.uni-pr.edu";
+                    $mailHeaders = "From: " . $_POST["name"] . "\r\n";
+                    if(mail($toEmail, $_POST["subject"], $_POST["message"], $mailHeaders))
+                    {
+                        print "<p class='success'>Mail Sent.</p>";
+                    }
+                    else
+                    {
+                        print "<p class='Error'>Problem in Sending Mail.</p>";
+                    }
 
-                    $headers = "From:" . $from;
-                    $headers2 = "From:" . $to;
-                    mail($to,$subject,$message,$headers);
-                    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-                    echo "Emaili eshte derguar " . $first_name . ", faleminderit do ju kontaktojme se shpejti.";
-                    // You can also use header('Location: thank_you.php'); to redirect to another page.
                 }
 
 
@@ -84,12 +80,11 @@
             ?>
 
         </article>
-            <form class="emailMeForm" action="" method="post" style="float: right; display:inline-block">
+            <form class="emailMeForm" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="float: right; display:inline-block">
                 <h1>Email me for deails</h1>
-                <label for="">First Name:    <input type="text" name="first_name"></label>
-                <label for="">Last Name:    <input type="text" name="last_name"></label>
-                <label for="">Email:        <input type="text" name="email"></label>
-                <label for="">Message:     <textarea rows="5" name="message" cols="30"></textarea></label>
+                <label for="">First Name:       <input type="text" name="name"></label>
+                <label for="">Subject           <input type="text" name="subject"></label>
+                <label for="">Message:          <input type="text" name="message" style="height: 60px" /></label><br /><br />
                 <input type="submit" name="submit" value="Submit">
             </form>
 
