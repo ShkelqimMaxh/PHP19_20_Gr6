@@ -105,9 +105,9 @@
               }
 
               if(!array_filter($errors)){
-                  $title = $_POST['titleTodo'];
+                  $title = htmlentities($_POST['titleTodo']);
                   $activeUser = $_SESSION["idUser"];
-                  $text   = $_POST['textTodo'];
+                  $text   = htmlentities($_POST['textTodo']);
 
                   $createTodoSql = "INSERT INTO todos(todoTitle,userId, todoText) VALUES ('$title','$activeUser','$text')";
 

@@ -46,8 +46,8 @@
 
 
 
-            $student = new      Student("Shkelqim Maxharraj","sh@gmail.net",'../img/studentAvatar.jpg');
-            $asistenti = new    Teacher('Vlera Alimehaj','vlera.alimehaj@uni-pr.edu','../img/asistantAvatar.jpg','Internet');
+            $student = new      Student("Shkelqim Maxharraj","sh@gmail.net",'../img/studentAvatar.png');
+            $asistenti = new    Teacher('Vlera Alimehaj','vlera.alimehaj@uni-pr.edu','../img/asistantAvatar.png','Internet');
             $profesor = new     Teacher('Valon Raca', 'valon@gmail.com', '../img/teacheravatar1.png', 'Interneti');
 
 

@@ -60,12 +60,12 @@
                       header('Location: Services.php');
                   }
                   else{
-                      echo "Passwordi: ". $row['userPassword'];
+                      echo "Passwordi juaj eshte gabim..";
                   }
               }
               else
               {
-                  echo ' Bad attempt';
+                  echo 'Nuk eksizton useri me kete email';
               }
 
           }

@@ -29,7 +29,7 @@
     <section id="showcase">
       <div class="container">
         <h1>Projekti: Programimi ne internet</h1>
-        <p> Teknologjite e perdorura ne projekt : Php, Html, Css, MySql, Linkedin Web Api </p>
+        <p> Teknologjite e perdorura ne projekt : Php, Html, Css, MySql, Weather Web Api </p>
       </div>
     </section>
 
@@ -67,6 +67,7 @@
 
                 if (!array_filter($errors)){
                     //Here add text to database
+                    $email=mysqli_real_escape_string($email);
                     $sql = "INSERT INTO Users(email) VALUES ('$email')";
 
                         if (mysqli_query($conn, $sql)) {
@@ -102,7 +103,7 @@
         ?>
 
         <div class="report-container">
-            <h2><?php echo $data->name; ?> Weather Status</h2>
+            <h2><?php echo str_replace("Istok","Istog",$data->name); ?> Raporti Motit</h2>
             <div class="time">
                 <div><?php echo date("l g:i a", $currentTime); ?></div>
                 <div><?php echo date("jS F, Y",$currentTime); ?></div>
@@ -115,8 +116,8 @@
                         class="min-temperature"><?php echo $data->main->temp_min; ?>°C</span>
             </div>
             <div class="time">
-                <div>Humidity: <?php echo $data->main->humidity; ?> %</div>
-                <div>Wind: <?php echo $data->wind->speed; ?> km/h</div>
+                <div>Lageshtia: <?php echo $data->main->humidity; ?> %</div>
+                <div>Era: <?php echo $data->wind->speed; ?> km/h</div>
             </div>
         </div>
 
