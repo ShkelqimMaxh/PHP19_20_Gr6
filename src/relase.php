@@ -38,7 +38,9 @@
 
     </div>
 
-
+        <?php
+             include 'Footer.php';
+        ?>
         <script src="js/showUsers.js"></script>
     </body>
 </html>

@@ -47,8 +47,8 @@
 
 
             $student = new      Student("Shkelqim Maxharraj","sh@gmail.net",'../img/studentAvatar.jpg');
-            $asistenti = new    Teacher('Dardan Shabani','dard@gmail.com','../img/assistant1.png','Internet');
-            $profesor = new     Teacher('Lule Ahmedi', 'lule@gmail.com', '../img/teacher2.png', 'Interneti');
+            $asistenti = new    Teacher('Vlera Alimehaj','vlera.alimehaj@uni-pr.edu','../img/asistantAvatar.jpg','Internet');
+            $profesor = new     Teacher('Valon Raca', 'valon@gmail.com', '../img/teacheravatar1.png', 'Interneti');
 
 
             ?>
@@ -95,7 +95,7 @@
                 <div class="box" id="firstDiv"><h1><?php echo $student->getName() ?></h1><br />
                     <img src="<?php echo $student->getAvatar(); ?>" alt=""><br/>
                     <p><?php echo $student->getEmail() ?></p><br/>
-                    <p>Student</p><br />
+                    <p>Student</p>
 
                 </div>
 
@@ -103,22 +103,14 @@
                     <img src="<?php echo $asistenti->getAvatar(); ?>" alt=""><br />
                     <p><?php echo $asistenti->getEmail(); ?></p><br />
                     <p><?php echo $asistenti->getSubject() ?></p>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <input type="button" value="update">
-                    </form>
                 </div>
 
                 <div class="box"><h1><?php echo $profesor->getName() ?></h1><br />
                     <img src="<?php echo $profesor->getAvatar(); ?>" alt=""><br />
                     <p><?php echo $profesor->getEmail(); ?></p><br />
                     <p><?php echo $profesor->getSubject() ?></p>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                        <input type="button" value="update">
-                    </form>
                 </div>
-
         </div>
-
 
         <div class="container">
             <div class="criteria">
@@ -127,8 +119,8 @@
             </div>
         </div>
 
-    <footer>
-      <p>Acme Web Deisgn, Copyright &copy; 2017</p>
-    </footer>
+    <?php
+    include 'Footer.php';
+    ?>
   </body>
 </html>

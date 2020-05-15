@@ -19,16 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bb00dc0-2783-4ec9-b4c2-f61cacaa682a" name="Default Changelist" comment="Adding sent mail functions">
-      <change afterPath="$PROJECT_DIR$/services/classes.php" afterDir="false" />
+    <list default="true" id="3bb00dc0-2783-4ec9-b4c2-f61cacaa682a" name="Default Changelist" comment="Adding object and fixing some design">
+      <change afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/webApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/Todo.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/Todo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/showcase.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/showcase.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/subscribers.php" beforeDir="false" afterPath="$PROJECT_DIR$/services/subscribers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/editpost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/editpost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/relase.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/relase.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +67,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -124,7 +129,9 @@
       <workItem from="1589335505094" duration="667000" />
       <workItem from="1589336297943" duration="6400000" />
       <workItem from="1589483983892" duration="1450000" />
-      <workItem from="1589485691551" duration="10497000" />
+      <workItem from="1589485691551" duration="10550000" />
+      <workItem from="1589505056491" duration="3195000" />
+      <workItem from="1589511420813" duration="6142000" />
     </task>
     <task id="LOCAL-00001" summary="Adding register page and fixing services page for edit and get in the new version">
       <created>1588476973260</created>
@@ -175,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589485298573</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adding object and fixing some design">
+      <created>1589500935440</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589500935440</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +208,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Adding register page and fixing services page for edit and get in the new version" />
     <MESSAGE value="Fixing register and login form. Also validation of register" />
     <MESSAGE value="Now a user can register. Password is salted. He can also login. We also fix some view" />
@@ -201,7 +216,8 @@
     <MESSAGE value="Fixing all Crud functions" />
     <MESSAGE value="Adding email sender and file reader" />
     <MESSAGE value="Adding sent mail functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding sent mail functions" />
+    <MESSAGE value="Adding object and fixing some design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding object and fixing some design" />
   </component>
   <component name="WindowStateProjectService">
     <state x="475" y="55" key="#PHP" timestamp="1588619787930">
@@ -220,10 +236,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588736605844" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589165856693">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589515283165">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589165856693" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589515283165" />
     <state x="484" y="235" key="#com.jetbrains.php.debug.validation.PhpWebServerValidationDialog#" timestamp="1588474453784">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -252,18 +268,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="943" height="147" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588979797300" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1589494412953">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1589507463780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1589494412953" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1589507463780" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1588619734669">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588619734669" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1589485384286">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1589500939819">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589485384286" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589500939819" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586731328962">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

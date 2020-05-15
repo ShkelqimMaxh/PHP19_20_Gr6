@@ -26,7 +26,12 @@
             <?php
             session_start();
                 if(isset( $_SESSION['firstname'] )){
-                    echo sprintf("Mireseerdhet: %s", $_SESSION['firstname']);
+
+                    $cookie_name = "activeUser";
+                    $cookie_value = $_SESSION['firstname'];
+                    setcookie($cookie_name, $cookie_value, time() + (3600 * 30), "/");
+
+                    echo sprintf("Mireseerdhet: %s", $cookie_value);
                 }
                 else {
                     echo 'Ju nuk jeni i loguar';
@@ -55,11 +60,10 @@
 
             }
 
-            if(isset($_POST['editTodo'])){
+            if(isset($_POST['editTodo'])) {
                 $_SESSION['actualTodo'] = $_POST['edit'];
                 header('Location:editpost.php');
             }
-
 
             ?>
             <?php foreach($todos as $todo):?>
@@ -142,8 +146,8 @@
       </div>
     </section>
 
-    <footer>
-      <p>Acme Web Deisgn, Copyright &copy; 2017</p>
-    </footer>
+  <?php
+    include 'Footer.php';
+  ?>
   </body>
 </html>

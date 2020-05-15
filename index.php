@@ -97,24 +97,30 @@
     </section>
 
     <section id="boxes">
-      <div class="container">
-        <div class="box">
-          <img src="./img/logo_html.jpg" alt="Photo cannot be loaded...">
-          <h3>TODO list</h3>
-          <p>Manage your todo notes </p>
+        <?php
+            include "services/webApi.php";
+        ?>
+
+        <div class="report-container">
+            <h2><?php echo $data->name; ?> Weather Status</h2>
+            <div class="time">
+                <div><?php echo date("l g:i a", $currentTime); ?></div>
+                <div><?php echo date("jS F, Y",$currentTime); ?></div>
+                <div><?php echo ucwords($data->weather[0]->description); ?></div>
+            </div>
+            <div class="weather-forecast">
+                <img
+                        src="http://openweathermap.org/img/w/<?php echo $data->weather[0]->icon; ?>.png"
+                        class="weather-icon" /> <?php echo $data->main->temp_max; ?>°C<span
+                        class="min-temperature"><?php echo $data->main->temp_min; ?>°C</span>
+            </div>
+            <div class="time">
+                <div>Humidity: <?php echo $data->main->humidity; ?> %</div>
+                <div>Wind: <?php echo $data->wind->speed; ?> km/h</div>
+            </div>
         </div>
-        <div class="box">
-          <img src="./img/logo_css.png" alt="Photo cannot be loaded...">
-          <h3>Register</h3>
-          <p>Register in our database</p>
-        </div>
-        <div class="box">
-          <img src="./img/logo_brush.png" alt="Photo cannot be loaded...">
-          <h3>About me</h3>
-          <p>Read about me to see the whole other requirments</p>
-        </div>
-      </div>
-    </section>
+
+      </section>
 
     <footer>
       <p>Projekti ne lenden: Programimi ne Internet<br /> Punoi: Shkelqim Maxharraj 160714100079</p>

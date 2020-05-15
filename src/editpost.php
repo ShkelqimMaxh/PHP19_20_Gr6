@@ -44,5 +44,10 @@ if(isset($_POST['editTodoSubmit'])) {
         </form>
     </div
 </div>
+
+    <?php
+        include 'Footer.php';
+    ?>
+
 </body>
 </html>

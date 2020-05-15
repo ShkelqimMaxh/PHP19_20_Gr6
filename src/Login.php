@@ -69,7 +69,7 @@
               }
 
           }
-              if(isset($_POST['logout']))
+              if(isset($_POST['logout']) || !isset($_COOKIE['activeUser']))
               {
                   session_destroy();
               }
@@ -114,8 +114,8 @@
       </div>
     </section>
 
-    <footer>
-      <p>Acme Web Deisgn, Copyright &copy; 2017</p>
-    </footer>
+  <?php
+    include 'Footer.php';
+  ?>
   </body>
 </html>

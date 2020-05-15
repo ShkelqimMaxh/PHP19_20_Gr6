@@ -54,6 +54,7 @@ header li{
   float:left;
   display:inline;
   padding: 0 20px 0 20px;
+
 }
 
 header #branding{
@@ -163,6 +164,7 @@ ul#services li{
   list-style: none;
   padding:20px;
   border: #cccccc solid 1px;
+  margin-top: 30px;
   margin-bottom:5px;
   background:#e6e6e6;
 }
@@ -209,3 +211,6 @@ footer{
   }
 }
 
+.report-container {
+  margin-left: 45%;
+}

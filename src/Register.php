@@ -142,10 +142,9 @@
     </div>
 </section>
 
-<footer>
-    <p>Projekti ne lenden: <br /> Programimi ne internet</p>
-</footer>
-
+    <?php
+        include 'Footer.php';
+    ?>
 
 
 
