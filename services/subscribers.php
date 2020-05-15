@@ -39,7 +39,7 @@ if($q !== ""){
             if($suggestion === ""){
                 $suggestion = $person;
             } else {
-                $suggestion .= ", &nbsp $person";
+                $suggestion .= ",  $person";
             }
         }
     }
@@ -55,7 +55,7 @@ echo $suggestion === "" ? "No Suggestion" : $suggestion;
             $subject    = "THE NEW VERSION IS HERE";
             $message    = "Go to our website and watch new version";
 
-            if(mail($sub, $subject, $_POST["message"], $mailHeaders))
+            if(mail($sub, $subject, $message, $mailHeaders))
             {
                 header("Location: ../index.php");
             }

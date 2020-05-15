@@ -12,7 +12,7 @@
     <header>
       <div class="container">
         <div id="branding">
-          <h1><span class="highlight">Projekti</span> ne PI</h1>
+          <h1 style="font-family: 'Brush Script MT'; font-size:3em "><span class="highlight" >Projekti</span> ne PI</h1>
         </div>
         <nav>
           <ul>

@@ -11,3 +11,39 @@ label {
 .emailMeForm input {
     float: right;
 }
+
+#aboutProject {
+    display: inline-block;
+}
+
+#aboutProject div {
+    display: inline-block;
+    margin: 30px 70px;
+    height: 500px;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid black;
+}
+#aboutProject div img {
+    height: 200px;
+    width: 200px;
+    margin-left: 18%;
+}
+#aboutProject div h1 {
+    text-align: center;
+}
+#aboutProject div p {
+    text-align: center;
+}
+#firstDiv {
+    margin-top: -200px;
+}
+.criteria a {
+    text-decoration: none;
+    color: #841d67;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 1.8em;
+}
+.criteria a:hover {
+    font-size: 2em;
+}
